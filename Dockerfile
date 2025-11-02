@@ -88,6 +88,10 @@ ENV PIP_NO_INPUT=1
 COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
+# Install custom nodes for Qwen models (TextEncodeQwenImageEditPlus)
+# Source: https://registry.comfy.org/fr/nodes/qweneditutils
+RUN comfy-node-install Comfyui-QwenEditUtils
+
 # Set the default command to run when starting the container
 CMD ["/start.sh"]
 
